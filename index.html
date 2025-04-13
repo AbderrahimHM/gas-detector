@@ -34,6 +34,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       margin-bottom: 20px;
+      flex-direction: row-reverse; /* This ensures Aseal is on the right */
     }
 
     .logo-section img {
@@ -131,7 +132,7 @@
 
     @media (max-width: 480px) {
       .logo-section {
-        flex-direction: column-reverse; /* Reversed for RTL */
+        flex-direction: column;
         gap: 10px;
         text-align: center;
       }
@@ -146,9 +147,9 @@
 
   <div class="container">
     <div class="logo-section">
-      <img src="Karfandscoot-logo.png" alt="Karf & Scoot" />
-      <span>بالتعاون مع</span>
       <img src="Aseal-logo.png" alt="أصيل" />
+      <span>بالتعاون مع</span>
+      <img src="Karfandscoot-logo.png" alt="Karf & Scoot" />
     </div>
 
     <div class="section">
