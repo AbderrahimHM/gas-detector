@@ -133,14 +133,6 @@
       cursor: not-allowed;
     }
 
-    .test-data {
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #f8f9fa;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
     @media (max-width: 480px) {
       .logo-section {
         flex-direction: column;
@@ -200,12 +192,6 @@
       <input type="text" id="name" placeholder="الإسم" required />
       <input type="tel" id="phone" placeholder="الهاتف" required />
       <button type="submit" class="submit-btn">إرسال</button>
-      
-      <div class="test-data">
-        <strong>Test Data:</strong><br>
-        Name: أحمد محمد (Ahmad Mohammed)<br>
-        Phone: 0550123456 (Saudi number)
-      </div>
     </form>
   </div>
 
@@ -220,12 +206,6 @@
   <script>
     const form = document.getElementById('contactForm');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyqxEgu-gD6phtjSsh67-7iJn9H9qVLTb7gOYGczK4LlGKekHzslIqI_8KoQkxfsI4/exec';
-
-    // Auto-fill test data
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('name').value = 'أحمد محمد';
-      document.getElementById('phone').value = '0550123456';
-    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -247,7 +227,7 @@
         }
 
         // Improved fetch request with CORS handling
-        const response = await fetch(scriptURL, {
+        await fetch(scriptURL, {
           method: 'POST',
           mode: 'no-cors',
           headers: {
@@ -256,14 +236,12 @@
           body: new URLSearchParams(formData).toString()
         });
 
-        // Since we're using no-cors mode, we can't read the response
-        // But we can assume success if the request was made
         alert("تم إرسال البيانات بنجاح! سيتم التواصل معك قريباً");
         form.reset();
 
       } catch (error) {
         console.error('Error:', error);
-        alert("تم إرسال البيانات بنجاح! (قد لا تظهر رسالة التأكيد بسبب إعدادات الأمان)");
+        alert(error.message || "تم إرسال البيانات بنجاح! (قد لا تظهر رسالة التأكيد بسبب إعدادات الأمان)");
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalBtnText;
