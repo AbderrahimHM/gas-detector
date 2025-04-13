@@ -234,12 +234,12 @@
           body: new URLSearchParams(formData).toString()
         });
 
-        alert("تم إرسال البيانات بنجاح! سيتم التواصل معك قريباً");
+        alert("شكراً على ثقتكم، سنتواصل معكم في أجل أقصاه 48 ساعة");
         form.reset();
 
       } catch (error) {
         console.error('Error:', error);
-        alert(error.message || "تم إرسال البيانات بنجاح! (قد لا تظهر رسالة التأكيد بسبب إعدادات الأمان)");
+        alert(error.message || "شكراً على ثقتكم، سنتواصل معكم في أجل أقصاه 48 ساعة (قد لا تظهر رسالة التأكيد بسبب إعدادات الأمان)");
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalBtnText;
