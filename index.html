@@ -38,12 +38,8 @@
 
     .logo-section img {
       height: 50px;
-    }
-
-    .title {
-      font-size: 28px;
-      font-weight: bold;
-      color: red;
+      max-width: 150px;
+      object-fit: contain;
     }
 
     .section {
@@ -135,7 +131,7 @@
 
     @media (max-width: 480px) {
       .logo-section {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Reversed for RTL */
         gap: 10px;
         text-align: center;
       }
@@ -150,9 +146,9 @@
 
   <div class="container">
     <div class="logo-section">
-      <img src="logo-karf.png" alt="Karf & Scoot" />
+      <img src="Karfandscoot-logo.png" alt="Karf & Scoot" />
       <span>بالتعاون مع</span>
-      <span class="title">أصيل</span>
+      <img src="Aseal-logo.png" alt="أصيل" />
     </div>
 
     <div class="section">
