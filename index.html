@@ -2,7 +2,6 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>كاشف الغاز</title>
   <style>
@@ -27,19 +26,18 @@
 
     .logo-section {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       background-color: #fff;
       padding: 15px 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       margin-bottom: 20px;
-      flex-direction: row; /* Forces left-to-right order */
     }
 
     .logo-section img {
-      height: 50px;
-      max-width: 150px;
+      height: 60px;
+      max-width: 100%;
       object-fit: contain;
     }
 
@@ -61,7 +59,7 @@
     .pdf-viewer {
       position: relative;
       width: 100%;
-      height: 500px;
+      aspect-ratio: 3 / 4;
       border: 1px solid #ddd;
       border-radius: 6px;
       overflow: hidden;
@@ -78,7 +76,7 @@
       display: flex;
       justify-content: center;
     }
-    
+
     .pdf-controls button {
       padding: 8px 20px;
       background-color: #f0f0f0;
@@ -88,7 +86,7 @@
       font-size: 16px;
       cursor: pointer;
     }
-    
+
     .pdf-controls button:hover {
       background-color: #e0e0e0;
     }
@@ -131,14 +129,8 @@
     }
 
     @media (max-width: 480px) {
-      .logo-section {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-      }
-      
       .pdf-viewer {
-        height: 300px;
+        aspect-ratio: 3 / 4;
       }
     }
   </style>
@@ -146,11 +138,9 @@
 <body>
 
   <div class="container">
-    <!-- Logo section with switched positions -->
+    <!-- Updated Logo section -->
     <div class="logo-section">
-      <img src="Aseal-logo.png" alt="أصيل" />
-      <span>بالتعاون مع</span>
-      <img src="The partner logo.png" alt="The partner" />
+      <img src="The partner logo.png" alt="Logo" />
     </div>
 
     <div class="section">
@@ -174,11 +164,7 @@
           id="pdfFrame"
           class="pdf-container"
           src="https://drive.google.com/file/d/1uhUAP3I1NVzWWFRBgIZoL394071rowlt/preview"
-          width="100%" 
-          height="100%"
-          style="border: none;">
-          المتصفح لا يدعم عرض PDF. 
-          <a href="https://drive.google.com/file/d/1uhUAP3I1NVzWWFRBgIZoL394071rowlt/view" target="_blank">اضغط لتحميل الملف</a>.
+          allowfullscreen>
         </iframe>
       </div>
       <div class="pdf-controls">
@@ -219,12 +205,10 @@
           phone: document.getElementById('phone').value.trim()
         };
 
-        // Validate inputs
         if (!formData.name || !formData.phone) {
           throw new Error('الرجاء إدخال جميع البيانات المطلوبة');
         }
 
-        // Improved fetch request with CORS handling
         await fetch(scriptURL, {
           method: 'POST',
           mode: 'no-cors',
