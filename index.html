@@ -56,29 +56,24 @@
       color: #555;
     }
 
-    .pdf-viewer {
-      position: relative;
+    .image-viewer {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      border: 1pt solid #000;
+      border: 1pt solid black;
       border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 10px;
-      padding: 1px; /* Ensures border isn't visually hidden by child iframe */
-      box-sizing: border-box;
-      background-color: white; /* Optional: ensures white background behind PDF */
-}
+      background-color: white;
+    }
 
-    .pdf-container {
-      width: 100%;
-      height: 100%;
-      border: none;
+    .image-viewer img {
       display: block;
+      width: 100%;
+      height: auto;
     }
 
     .pdf-controls {
       display: flex;
       justify-content: center;
+      margin-top: 10px;
     }
 
     .pdf-controls button {
@@ -131,18 +126,11 @@
       background-color: #cccccc;
       cursor: not-allowed;
     }
-
-    @media (max-width: 480px) {
-      .pdf-viewer {
-        aspect-ratio: 3 / 4;
-      }
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- Updated Logo section -->
     <div class="logo-section">
       <img src="Aseal-logo.png" alt="Logo" />
     </div>
@@ -163,13 +151,8 @@
 
     <div class="section">
       <div class="section-title">شهادة الجودة</div>
-      <div class="pdf-viewer">
-        <iframe 
-          id="pdfFrame"
-          class="pdf-container"
-          src="https://drive.google.com/file/d/15yfUM0IFxah8L6TBfiJpoeDGpPyI_JZf/preview"
-          allowfullscreen>
-        </iframe>
+      <div class="image-viewer">
+        <img src="The certification.jpg" alt="شهادة الجودة" />
       </div>
       <div class="pdf-controls">
         <button onclick="downloadPDF()">تحميل</button>
@@ -183,14 +166,12 @@
     </form>
   </div>
 
-  <!-- PDF Download Function -->
   <script>
     function downloadPDF() {
-      window.open('https://drive.google.com/uc?export=download&id=1uhUAP3I1NVzWWFRBgIZoL394071rowlt', '_blank');
+      window.open('The certification.jpg', '_blank');
     }
   </script>
 
-  <!-- Form Submission Handler -->
   <script>
     const form = document.getElementById('contactForm');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyqxEgu-gD6phtjSsh67-7iJn9H9qVLTb7gOYGczK4LlGKekHzslIqI_8KoQkxfsI4/exec';
