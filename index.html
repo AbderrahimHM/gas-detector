@@ -64,12 +64,16 @@
       border-radius: 6px;
       overflow: hidden;
       margin-bottom: 10px;
-    }
+      padding: 1px; /* Ensures border isn't visually hidden by child iframe */
+      box-sizing: border-box;
+      background-color: white; /* Optional: ensures white background behind PDF */
+}
 
     .pdf-container {
       width: 100%;
       height: 100%;
       border: none;
+      display: block;
     }
 
     .pdf-controls {
